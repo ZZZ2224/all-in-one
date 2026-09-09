@@ -71,11 +71,9 @@
 
 > 小任务更聚焦
 
-
 # 9.9 Day 3 数据
 
 数据：标题 string 必填 1-50字；内容 string 可空
-
 
 ## 缺项工单
 
@@ -86,6 +84,7 @@
 算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错\
 
 已确认 src/app/api/notes/route.ts 满足要求：
+
 - 标题为空或仅包含空格时返回 400
 - 标题有效时返回 201
 - content 可选，默认为空字符串
@@ -101,8 +100,9 @@
 算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错
 
 已完成笔记新建接口，修改文件：
+
 - src/app/api/notes/route.ts
-实现内容：
+  实现内容：
 - title 必填，必须是字符串
 - 标题去除首尾空格后不能为空
 - 标题长度限制为 1-50 个字符
@@ -113,12 +113,11 @@
 
 > 写了数据，校验才准。
 
-
 # 9.9 Day 4 规则
+
 规则：标题不能为空，1-50字；链接必须以 http 或 https 开头。
 
 > 规则：有规则漏的少。
-
 
 # 9.9 Day 5 文件
 
@@ -132,6 +131,7 @@
 算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错
 
 已按指定文件完成修改：
+
 - 修改 src/app/api/notes/route.ts:13
 - 接收 { title, link }
 - 标题去除首尾空格后必须为 1-50 字符
@@ -145,13 +145,15 @@
 # 9.9 Day 6 算对
 
 ## 缺项工单
+
 角色：资深全栈工程师
 任务：收藏的新建接口
 数据：标题 string 必填 1-50字；链接 string 必填
 规则：标题不能为空；链接必须以 http 或 https 开头
-文件：src/app/api/notes/route.ts  
+文件：src/app/api/notes/route.ts
 
 已确认 [src/app/api/notes/route.ts (line 1)](C:/Users/24696/Desktop/All-in-one/src/app/api/notes/route.ts:1) 已满足收藏新建接口要求：
+
 - title 必填，去除首尾空格后长度为 1-50
 - link 必填，必须以 http:// 或 https:// 开头
 - 无效数据返回 400
@@ -165,9 +167,10 @@
 数据：标题 string 必填 1-50字；链接 string 必填
 规则：标题不能为空；链接必须以 http 或 https 开头
 文件：src/app/api/notes/route.ts
-算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错\    
+算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错\
 
 已确认 [src/app/api/notes/route.ts (line 1)](C:/Users/24696/Desktop/All-in-one/src/app/api/notes/route.ts:1) 满足要求：
+
 - 标题必填，长度 1-50 字
 - 标题为空返回 400
 - 链接必须以 http:// 或 https:// 开头
@@ -179,3 +182,12 @@
 > 有算对它自测
 
 # 9.9 Day 7 周复盘
+
+| 空   | 差         | 好                         |
+| ---- | ---------- | -------------------------- |
+| 角色 | 不写       | 资深全栈工程师             |
+| 任务 | 帮我做笔记 | 做笔记的新建接口           |
+| 数据 | 不写       | 标题 string 必填 1-50字    |
+| 规则 | 不写       | 标题不能为空               |
+| 文件 | 不写       | src/app/api/notes/route.ts |
+| 算对 | 不写       | 空 400 正常 201 tsc 无错   |
