@@ -9,17 +9,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const title =
-    typeof body === "object" && body !== null && "title" in body
-      ? (body as { title?: unknown }).title
-      : undefined;
+  const payload =
+    typeof body === "object" && body !== null && !Array.isArray(body)
+      ? (body as { title?: unknown; content?: unknown })
+      : {};
 
-  if (typeof title !== "string" || title.trim().length === 0 || title.length > 50) {
+  const title = payload.title;
+  const content = payload.content;
+  const normalizedTitle = typeof title === "string" ? title.trim() : "";
+
+  if (normalizedTitle.length === 0 || normalizedTitle.length > 50) {
     return NextResponse.json(
       { error: "Title must be between 1 and 50 characters" },
       { status: 400 },
     );
   }
 
-  return NextResponse.json({ title: title.trim() }, { status: 201 });
+  if (content !== undefined && typeof content !== "string") {
+    return NextResponse.json({ error: "Content must be a string" }, { status: 400 });
+  }
+
+  return NextResponse.json(
+    { title: normalizedTitle, content: content ?? "" },
+    { status: 201 },
+  );
 }
