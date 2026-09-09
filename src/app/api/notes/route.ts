@@ -11,12 +11,12 @@ export async function POST(request: Request) {
 
   const payload =
     typeof body === "object" && body !== null && !Array.isArray(body)
-      ? (body as { title?: unknown; content?: unknown })
+      ? (body as { title?: unknown; link?: unknown })
       : {};
 
-  const title = payload.title;
-  const content = payload.content;
-  const normalizedTitle = typeof title === "string" ? title.trim() : "";
+  const normalizedTitle =
+    typeof payload.title === "string" ? payload.title.trim() : "";
+  const link = typeof payload.link === "string" ? payload.link.trim() : "";
 
   if (normalizedTitle.length === 0 || normalizedTitle.length > 50) {
     return NextResponse.json(
@@ -25,12 +25,12 @@ export async function POST(request: Request) {
     );
   }
 
-  if (content !== undefined && typeof content !== "string") {
-    return NextResponse.json({ error: "Content must be a string" }, { status: 400 });
+  if (!/^https?:\/\//i.test(link)) {
+    return NextResponse.json(
+      { error: "Link must start with http:// or https://" },
+      { status: 400 },
+    );
   }
 
-  return NextResponse.json(
-    { title: normalizedTitle, content: content ?? "" },
-    { status: 201 },
-  );
+  return NextResponse.json({ title: normalizedTitle, link }, { status: 201 });
 }
