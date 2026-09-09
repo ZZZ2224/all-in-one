@@ -141,3 +141,41 @@
 - npx tsc --noEmit 已通过
 
 > 文件越精准越可控。
+
+# 9.9 Day 6 算对
+
+## 缺项工单
+角色：资深全栈工程师
+任务：收藏的新建接口
+数据：标题 string 必填 1-50字；链接 string 必填
+规则：标题不能为空；链接必须以 http 或 https 开头
+文件：src/app/api/notes/route.ts  
+
+已确认 [src/app/api/notes/route.ts (line 1)](C:/Users/24696/Desktop/All-in-one/src/app/api/notes/route.ts:1) 已满足收藏新建接口要求：
+- title 必填，去除首尾空格后长度为 1-50
+- link 必填，必须以 http:// 或 https:// 开头
+- 无效数据返回 400
+- 有效数据返回 201
+- npx tsc --noEmit 已通过
+
+## 合格工单
+
+角色：资深全栈工程师
+任务：收藏的新建接口
+数据：标题 string 必填 1-50字；链接 string 必填
+规则：标题不能为空；链接必须以 http 或 https 开头
+文件：src/app/api/notes/route.ts
+算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错\    
+
+已确认 [src/app/api/notes/route.ts (line 1)](C:/Users/24696/Desktop/All-in-one/src/app/api/notes/route.ts:1) 满足要求：
+- 标题必填，长度 1-50 字
+- 标题为空返回 400
+- 链接必须以 http:// 或 https:// 开头
+- 正常数据返回 201
+- 空数据验证：400
+- 正常数据验证：201
+- npx tsc --noEmit 已通过
+
+> 有算对它自测
+
+# 9.9 Day 7 周复盘
