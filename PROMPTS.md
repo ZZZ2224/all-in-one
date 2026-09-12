@@ -195,3 +195,31 @@
 # 9.10 Day 8 例子
 
 > 一个例子比三句规则管用。它用具体输入和预期结果，说明什么情况算通过。如何给例子呢？？？模板待填充。
+ 
+ # 9.11 Day 9 分步骤
+
+角色：资深全栈工程师
+任务：收藏的新建接口
+数据：标题 string 必填 1-50字；链接 string 必填
+规则：标题不能为空；链接必须以 http 或 https 开头
+文件：src/app/api/notes/route.ts
+算对：空的返回 400，正常返回 201，跑 npx tsc --noEmit 无错 例子：标题[买牛奶]正确；标题空着返回400
+
+
+这张工单的接口代码已经完成，位于 [src/app/api/notes/route.ts (line 3)](C:/Users/24696/Desktop/All-in-one/src/app/api/notes/route.ts:3)。
+已满足：
+- title 必须是 1–50 个字符
+- 空标题或纯空格标题返回 400
+- link 必须以 http:// 或 https:// 开头
+- 正常数据返回 201
+- 定向 TypeScript 检查已通过
+测试数据：
+{"title":"","link":"https://example.com"}
+预期：400
+{"title":"买牛奶","link":"https://example.com"}
+预期：201
+补充：当前执行完整 npx tsc --noEmit 时，会被项目原有的空文件 app/api/route.ts 报错；这不是收藏接口代码导致的。
+
+> 列出需要修改的文件无代码更改，分别列各文件需修改的清单，不改代码，分3步。第二轮：按清单只生成第一个文件。后依次生成后面几个。
+
+> 先拆，按照拆的小点，一个个做，后面改的少。
